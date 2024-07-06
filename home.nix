@@ -19,6 +19,15 @@
     TERMINAL = "alacritty"
   };
 
+  programs.zsh = {
+    enable = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [];
+      theme = "lukerandall";
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
