@@ -35,6 +35,12 @@
     };
   };
 
+  programs.git = {
+    enable = true;
+    userName = "Blake Johnson";
+    userEmail = "blakekjohnson4@gmail.com";
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
