@@ -12,8 +12,11 @@
     description = "Blake Johnson";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      firefox
     ];
     shell = pkgs.zsh;
+  };
+
+  home-manager.users = {
+    "blakej" = import ./home.nix;
   };
 }
