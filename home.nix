@@ -7,7 +7,6 @@
   home.stateVersion = "24.05";
 
   home.packages = [
-    pkgs.alacritty
     pkgs.firefox
   ];
 
@@ -17,6 +16,25 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     TERMINAL = "alacritty";
+  };
+
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      window.decorations = "Full";
+      font.normal = {
+        family = "Fira Code";
+      };
+      font.bold = {
+        family = "Fira Code";
+      };
+      font.italic = {
+        family = "Fira Code";
+      };
+      font.bold_italic = {
+        family = "Fira Code";
+      };
+    };
   };
 
   programs.zsh = {
