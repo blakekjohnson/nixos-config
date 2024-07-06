@@ -10,7 +10,10 @@
     nixosConfigurations.middlec = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = inputs;
-      modules = [ ./configuration.nix ];
+      modules = [
+        ./configuration.nix
+	./blakej.nix
+      ];
     };
   };
 }

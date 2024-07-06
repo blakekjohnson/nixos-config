@@ -10,8 +10,11 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      # Include basic nix flake
+      # Include home-manager
       home-manager.nixosModules.default
+
+      # Include blakej user setup
+      ./blakej.nix
     ];
 
   # Bootloader.
@@ -77,16 +80,6 @@
   };
   services.displayManager = {
     defaultSession = "none+xmonad";
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.blakej = {
-    isNormalUser = true;
-    description = "Blake Johnson";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    ];
-    shell = pkgs.zsh;
   };
 
   # Allow unfree packages
