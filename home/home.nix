@@ -4,6 +4,7 @@
   imports = [
     ./alacritty.nix
     ./neovim.nix
+    ./picom.nix
     ./xmobar.nix
     ./xmonad.nix
     ./zsh.nix
