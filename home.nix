@@ -8,6 +8,7 @@
 
   home.packages = [
     pkgs.firefox
+    pkgs.killall
   ];
 
   home.file = {
@@ -20,6 +21,9 @@
   xsession.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
+    extraPackages = haskellPackages: [
+      haskellPackages.xmobar
+    ];
     config = pkgs.writeText "xmonad.hs" ''
       import XMonad
 
@@ -38,6 +42,8 @@
       main = xmonad
            . ewmhFullscreen
            . ewmh
+           . withEasySB (
+              statusBarProp "xmobar" (pure blakeXmobarPP)) defToggleStrutsKey
            $ blakeConfig
 
       blakeLayout = threeCol ||| Full ||| tiled 
@@ -58,6 +64,9 @@
           [("M-q", spawn xmonadCommand)
           , ("M-S-<Return>", spawn "alacritty")
           ]
+
+      blakeXmobarPP :: PP
+      blakeXmobarPP = def
     '';
   };
   
@@ -157,6 +166,28 @@
       :set expandtab
       :set tabstop=8 softtabstop=0
       nnoremap <C-1> <cmd>Neotree<CR>
+    '';
+  };
+
+  programs.xmobar = {
+    enable = true;
+    extraConfig = ''
+      Config {
+          font = "Fira Code"
+        , borderWidth = 3
+        , bgColor = "#272a3b"
+        , fgColor = "#f8f8f2"
+        , position = TopSize C 100 24
+        , persistent = True
+        , commands =
+            [ Run Cpu ["-t", "cpu: (<total>%)", "-H", "50", "--high", "red"] 10
+            , Run Memory ["-t", "mem: (<usedratio>%)"] 10
+            , Run Date "date: %a %d %b %Y %H:%M:%S" "date" 10
+            ]
+        }
+        , sepChar = "%"
+        , alignSep = "}{"
+        , template = "%cpu% | %memory% }{%date%"
     '';
   };
 
