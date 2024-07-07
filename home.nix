@@ -62,7 +62,23 @@
     enable = true;
     defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
-      neo-tree-nvim
+      {
+        plugin = neo-tree-nvim;
+        type = "lua";
+        config = ''
+          require('neo-tree').setup({
+            event_handlers = {
+              -- Close Neotree when file opened
+              {
+                event = 'file_open_requested',
+                handler = function()
+                  require('neo-tree.command').execute({ action = 'close' })
+                end
+              },
+            }
+          })
+        '';
+      }
       {
         plugin = lualine-nvim;
         type = "lua";
@@ -84,18 +100,19 @@
       }
       {
         plugin = dracula-nvim;
-	type = "lua";
-	config = ''
-	  require("dracula").setup{}
-	  vim.cmd[[colorscheme dracula]]
-	'';
+        type = "lua";
+        config = ''
+          require("dracula").setup{}
+          vim.cmd[[colorscheme dracula]]
+        '';
       }
     ];
     extraConfig = ''
       :set number
+      :set shiftwidth=2 smarttab
       :set expandtab
-      nnoremap <A-1> <cmd>Neotree
-      autocmd FileType nix setlocal tabstop=2 shiftwidth=2
+      :set tabstop=8 softtabstop=0
+      nnoremap <C-1> <cmd>Neotree<CR>
     '';
   };
 

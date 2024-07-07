@@ -65,7 +65,7 @@
     displayManager.lightdm = {
       greeters.mini = {
         enable = true;
-	user = "blakej";
+        user = "blakej";
       };
     };
   };
