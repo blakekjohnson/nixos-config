@@ -10,8 +10,8 @@
         , position = TopSize C 100 24
         , persistent = True
         , commands =
-            [ Run Cpu ["-t", "cpu: (<total>%)", "-H", "50", "--high", "red"] 10
-            , Run Memory ["-t", "mem: (<usedratio>%)"] 10
+            [ Run Cpu ["-t", "CPU: (<autototal>%)", "-H", "50", "--high", "red"] 10
+            , Run Memory ["-t", "MEM: (<usedratio>%)"] 10
             , Run Date "date: %a %d %b %Y %H:%M:%S" "date" 10
             ]
         }
