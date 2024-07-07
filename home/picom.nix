@@ -1,7 +1,13 @@
 { config, pkgs, ...}: {
   services.picom = {
     enable = true;
-    activeOpacity = 0.90;
+    activeOpacity = 0.95;
+    inactiveOpacity = 0.75;
+    fade = true;
+    opacityRules = [
+      "100:class_g *?= 'Firefox'"
+      "100:class_g *?= 'dmenu'"
+    ];
   };
 }
 
