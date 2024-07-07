@@ -12,12 +12,13 @@
         , commands =
             [ Run Cpu ["-t", "CPU: (<total>%)", "-H", "50", "--high", "red"] 10
             , Run Memory ["-t", "MEM: (<usedratio>%)"] 10
-            , Run Date "date: %a %d %b %Y %H:%M:%S" "date" 10
+            , Run Date "%a %d %b %Y %H:%M:%S" "date" 10
+            , Run XMonadLog
             ]
         }
         , sepChar = "%"
         , alignSep = "}{"
-        , template = "%cpu% | %memory% }{%date%"
+        , template = "%XMonadLog% }{ %cpu% | %memory% | %date%"
     '';
   };
 }

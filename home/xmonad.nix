@@ -16,6 +16,7 @@
       import XMonad.Util.EZConfig
 
       import XMonad.Layout.ThreeColumns
+      import XMonad.Layout.Spacing
 
       import Graphics.X11.ExtraTypes.XF86
 
@@ -38,8 +39,8 @@
       xmonadCommand = "xmonad --recompile; killall xmobar; xmonad --restart; xmobar &"
 
       blakeConfig = def
-          { borderWidth = 5
-          , layoutHook = blakeLayout
+          { borderWidth = 0
+          , layoutHook = spacingWithEdge 5 $ blakeLayout
           }
         `additionalKeysP`
           [("M-q", spawn xmonadCommand)

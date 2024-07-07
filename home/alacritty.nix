@@ -2,7 +2,10 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      window.decorations = "Full";
+      window.padding = {
+        x = 10;
+        y = 10;
+      };
       font.normal = {
         family = "Fira Code";
       };
