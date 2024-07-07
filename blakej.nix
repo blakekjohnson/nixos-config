@@ -17,6 +17,6 @@
   };
 
   home-manager.users = {
-    "blakej" = import ./home.nix;
+    "blakej" = import ./home/home.nix;
   };
 }
