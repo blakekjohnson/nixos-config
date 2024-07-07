@@ -76,7 +76,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  environment.variables.EDITOR = "nvim";
   environment.systemPackages = with pkgs; [
     vim
     neovim

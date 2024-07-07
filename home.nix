@@ -14,7 +14,6 @@
   };
 
   home.sessionVariables = {
-    EDITOR = "nvim";
     TERMINAL = "alacritty";
   };
 
@@ -57,6 +56,47 @@
     enable = true;
     userName = "Blake Johnson";
     userEmail = "blakekjohnson4@gmail.com";
+  };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    plugins = with pkgs.vimPlugins; [
+      neo-tree-nvim
+      {
+        plugin = lualine-nvim;
+        type = "lua";
+        config = ''
+          require('lualine').setup(
+            {
+              options = { theme = 'dracula-nvim' },
+              sections = {
+                lualine_a = { 'mode' },
+                lualine_b = { 'branch', 'diff' },
+                lualine_c = { 'filename' },
+                lualine_x = { 'encoding', 'filetype' },
+                lualine_y = { 'progress' },
+                lualine_z = { 'location' }
+              }
+            }
+          )
+        '';
+      }
+      {
+        plugin = dracula-nvim;
+	type = "lua";
+	config = ''
+	  require("dracula").setup{}
+	  vim.cmd[[colorscheme dracula]]
+	'';
+      }
+    ];
+    extraConfig = ''
+      :set number
+      :set expandtab
+      nnoremap <A-1> <cmd>Neotree
+      autocmd FileType nix setlocal tabstop=2 shiftwidth=2
+    '';
   };
 
   # Let Home Manager install and manage itself.
