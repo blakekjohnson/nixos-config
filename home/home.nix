@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./alacritty.nix
+  ];
+
   home.username = "blakej";
   home.homeDirectory = "/home/blakej";
 
@@ -70,25 +74,6 @@
       blakeXmobarPP :: PP
       blakeXmobarPP = def
     '';
-  };
-  
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      window.decorations = "Full";
-      font.normal = {
-        family = "Fira Code";
-      };
-      font.bold = {
-        family = "Fira Code";
-      };
-      font.italic = {
-        family = "Fira Code";
-      };
-      font.bold_italic = {
-        family = "Fira Code";
-      };
-    };
   };
 
   programs.zsh = {
