@@ -7,6 +7,7 @@
   home.stateVersion = "24.05";
 
   home.packages = [
+    pkgs.dmenu
     pkgs.firefox
     pkgs.killall
   ];
@@ -63,6 +64,7 @@
         `additionalKeysP`
           [("M-q", spawn xmonadCommand)
           , ("M-S-<Return>", spawn "alacritty")
+          , ("M-P", spawn "dmenu_run")
           ]
 
       blakeXmobarPP :: PP
