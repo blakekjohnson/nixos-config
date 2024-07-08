@@ -8,6 +8,12 @@
       "100:class_g *?= 'Firefox'"
       "100:class_g *?= 'dmenu'"
     ];
+    settings = {
+      corner-radius = 20;
+      rounded-corners-exclude = [
+        "name = 'xmobar'"
+      ];
+    };
   };
 }
 
