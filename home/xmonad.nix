@@ -46,6 +46,7 @@
           [("M-q", spawn xmonadCommand)
           , ("M-S-<Return>", spawn "alacritty")
           , ("M-P", spawn "dmenu_run")
+          , ("C-S-c", spawn "scrot")
           ]
 
       blakeXmobarPP :: PP

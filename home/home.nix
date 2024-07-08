@@ -19,6 +19,7 @@
     pkgs.dmenu
     pkgs.firefox
     pkgs.killall
+    pkgs.scrot
   ];
 
   home.file = {
