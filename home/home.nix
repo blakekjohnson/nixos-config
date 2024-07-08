@@ -16,9 +16,12 @@
   home.stateVersion = "24.05";
 
   home.packages = [
+    pkgs.ardour
+    pkgs.audacity
     pkgs.dmenu
     pkgs.firefox
     pkgs.killall
+    pkgs.pavucontrol
     pkgs.scrot
   ];
 

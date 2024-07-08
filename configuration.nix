@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, home-manager, musnix, ... }:
 
 {
   imports =
@@ -8,6 +8,9 @@
 
       # Include home-manager
       home-manager.nixosModules.default
+
+      # Include musnix
+      musnix.nixosModules.musnix
 
       # Include blakej user setup
       ./blakej.nix
@@ -24,6 +27,47 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # Enable audio
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    extraConfig.pipewire = {
+      "92-low-latency" = {
+        context.properties = {
+          default.clock = {
+            rate = 48000;
+            quantum = 32;
+            min-quantum = 32;
+            max-quantum = 32;
+          };
+        };
+      };
+    };
+    extraConfig.pipewire-pulse = {
+      context.modules = [
+        {
+          name = "libpipewire-module-protocol-pulse";
+          args = {
+            pulse = {
+              min.req = "32/48000";
+              default.req = "32/48000";
+              max.req = "32/48000";
+              min.quantum = "32/48000";
+              max.quantum = "32/48000";
+            };
+          };
+        }
+      ];
+      stream.properties = {
+        node.latency = "32/48000";
+        resample.quality = 1;
+      };
+    };
+  };
 
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
