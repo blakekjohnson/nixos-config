@@ -32,7 +32,7 @@
   programs.git = {
     enable = true;
     userName = "Blake Johnson";
-    userEmail = "blakekjohnson4@gmail.com";
+    userEmail = "blake.k.johnson.4@gmail.com";
   };
 
   # Let Home Manager install and manage itself.
