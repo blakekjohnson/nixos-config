@@ -107,6 +107,10 @@
       greeters.mini = {
         enable = true;
         user = "blakej";
+        extraConfig = ''
+          [greeter-theme]
+          background-image = "/home/blakej/.background_image/wallpaper.jpg"
+        '';
       };
     };
   };
@@ -135,6 +139,7 @@
     fira-code fira-mono
   ];
 
+  programs.slock.enable = true;
   programs.zsh.enable = true;
 
   system.stateVersion = "24.05"; # Did you read the comment?

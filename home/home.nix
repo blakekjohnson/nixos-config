@@ -32,6 +32,13 @@
     TERMINAL = "alacritty";
   };
 
+  services.screen-locker = {
+    enable = true;
+    xautolock.enable = true;
+    lockCmd = "${pkgs.slock}/bin/slock";
+    inactiveInterval = 5;
+  };
+
   programs.git = {
     enable = true;
     userName = "Blake Johnson";
