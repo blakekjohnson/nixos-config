@@ -1,13 +1,10 @@
-{ config, pkgs, home-manager, musnix, ... }:
+{ config, pkgs, home-manager, ... }:
 
 {
   imports =
     [
       # Include home-manager
       home-manager.nixosModules.default
-
-      # Include musnix
-      musnix.nixosModules.default
     ];
 
   users.users.blakej = {
