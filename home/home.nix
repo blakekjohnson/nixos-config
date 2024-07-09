@@ -5,6 +5,7 @@
     ./alacritty.nix
     ./neovim.nix
     ./picom.nix
+    ./rofi.nix
     ./xmobar.nix
     ./xmonad.nix
     ./zsh.nix
@@ -18,7 +19,6 @@
   home.packages = [
     pkgs.ardour
     pkgs.audacity
-    pkgs.dmenu
     pkgs.firefox
     pkgs.killall
     pkgs.pavucontrol

@@ -45,8 +45,8 @@
         `additionalKeysP`
           [("M-q", spawn xmonadCommand)
           , ("M-S-<Return>", spawn "alacritty")
-          , ("M-P", spawn "dmenu_run")
           , ("C-S-c", spawn "scrot")
+          , ("M-p", spawn "rofi -show run")
           ]
 
       blakeXmobarPP :: PP
