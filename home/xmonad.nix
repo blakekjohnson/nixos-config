@@ -47,7 +47,7 @@
           , ("M-S-<Return>", spawn "alacritty")
           , ("C-S-c", spawn "scrot")
           , ("M-p", spawn "rofi -show run")
-          , ("C-M-l", spawn "slock")
+          , ("C-M-l", spawn "slock dm-tool lock")
           ]
 
       blakeXmobarPP :: PP
