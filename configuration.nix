@@ -109,7 +109,7 @@
         user = "blakej";
         extraConfig = ''
           [greeter-theme]
-          background-image = "/home/blakej/.background_image/wallpaper.jpg"
+          background-image = "/usr/share/wallpaper.jpg"
         '';
       };
     };
