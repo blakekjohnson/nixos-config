@@ -28,7 +28,7 @@
               statusBarProp "xmobar" (pure blakeXmobarPP)) defToggleStrutsKey
            $ blakeConfig
 
-      blakeLayout = threeCol ||| Full ||| tiled 
+      blakeLayout = threeCol ||| Full ||| tiled
         where
           threeCol = ThreeColMid nmaster delta ratio
           tiled = Tall nmaster delta ratio
@@ -47,7 +47,7 @@
           , ("M-S-<Return>", spawn "alacritty")
           , ("C-S-c", spawn "scrot")
           , ("M-p", spawn "rofi -show run")
-          , ("C-M-l", spawn "slock dm-tool lock")
+          , ("C-M-l", spawn "dm-tool lock")
           ]
 
       blakeXmobarPP :: PP

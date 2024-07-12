@@ -133,6 +133,8 @@
 
     zsh
     alacritty
+
+    pavucontrol
   ];
 
   fonts.packages = with pkgs; [
