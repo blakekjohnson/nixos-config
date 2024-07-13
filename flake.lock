@@ -39,7 +39,28 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "slippi": "slippi"
+      }
+    },
+    "slippi": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1720625270,
+        "narHash": "sha256-7JGUXmp6LxPkinxy9kEnrdbZQPF8QGZwvRxWU/ZwJKY=",
+        "owner": "lytedev",
+        "repo": "slippi-nix",
+        "rev": "e86b5e46d53a929303b9ad6539cb6e64e7a8c5b4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lytedev",
+        "repo": "slippi-nix",
+        "type": "github"
       }
     }
   },

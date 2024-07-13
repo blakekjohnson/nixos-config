@@ -45,6 +45,13 @@
     userEmail = "blake.k.johnson.4@gmail.com";
   };
 
+  slippi = {
+    launcher = {
+      isoPath = "/home/blakej/Downloads/melee.iso";
+      launchMeleeOnPlay = false;
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
