@@ -17,7 +17,6 @@
   home.stateVersion = "24.05";
 
   home.packages = [
-    pkgs.ardour
     pkgs.audacity
     pkgs.firefox
     pkgs.killall
@@ -43,13 +42,6 @@
     enable = true;
     userName = "Blake Johnson";
     userEmail = "blake.k.johnson.4@gmail.com";
-  };
-
-  slippi = {
-    launcher = {
-      isoPath = "/home/blakej/Downloads/melee.iso";
-      launchMeleeOnPlay = false;
-    };
   };
 
   # Let Home Manager install and manage itself.

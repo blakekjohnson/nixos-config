@@ -1,13 +1,10 @@
-{ config, pkgs, home-manager, slippi, ... }:
+{ config, pkgs, home-manager, ... }:
 
 {
   imports =
     [
       # Include home-manager
       home-manager.nixosModules.default
-
-      # Include slippi
-      slippi.nixosModules.default
     ];
 
   users.users.blakej = {
@@ -23,7 +20,6 @@
     "blakej" = {
       imports = [
         ./home/home.nix
-        slippi.homeManagerModules.default
       ];
     };
   };
