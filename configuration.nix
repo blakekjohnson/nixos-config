@@ -13,6 +13,10 @@
       ./blakej.nix
     ];
 
+  # Set kernel to use latest
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [ "intel_pstate=active" ];
+
   # Bootloader.
   boot.loader = {
     efi.canTouchEfiVariables = true;
