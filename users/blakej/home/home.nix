@@ -25,6 +25,11 @@
     pkgs.tree
   ];
 
+  home.shellAliases = {
+    vim = "nvim";
+    vi = "nvim";
+  };
+
   home.file = {
   };
 
