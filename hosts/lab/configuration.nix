@@ -31,18 +31,52 @@
       ports.dns = 53;
       ports.http = 4000;
 
+      prometheus.enable = true;
+
       upstreams.groups.default = [
         "tcp-tls:1.1.1.1:853"
       ];
 
       blocking = {
         blackLists = {
+          general = [
+            "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews/hosts"
+          ];
+          abuse = [
+            "https://blocklistproject.github.io/Lists/abuse.txt"
+          ];
           ads = [
             "https://adaway.org/hosts.txt"
+            "https://v.firebog.net/hosts/AdguardDNS.txt"
+            "https://blocklistproject.github.io/Lists/ads.txt"
+          ];
+          fraud = [
+            "https://blocklistproject.github.io/Lists/fraud.txt"
+          ];
+          malware = [
+            "https://blocklistproject.github.io/Lists/malware.txt"
+          ];
+          phishing = [
+            "https://blocklistproject.github.io/Lists/phishing.txt"
+          ];
+          ransomware = [
+            "https://blocklistproject.github.io/Lists/ransomware.txt"
+          ];
+          scam = [
+            "https://blocklistproject.github.io/Lists/scam.txt"
           ];
         };
         clientGroupsBlock = {
-          default = [ "ads" ];
+          default = [
+            "general"
+            "abuse"
+            "ads"
+            "fraud"
+            "malware"
+            "phishing"
+            "ransomware"
+            "scam"
+          ];
         };
       };
 
@@ -50,6 +84,31 @@
         upstream = "10.0.0.1";
         singleNameOrder = [ 1 ];
       };
+    };
+  };
+
+  # Enable prometheus
+  services.prometheus = {
+    enable = true;
+    globalConfig.scrape_interval = "10s";
+    scrapeConfigs = [
+      {
+        job_name = "blocky";
+        static_configs = [{
+          targets = [ "localhost:${toString config.services.blocky.settings.ports.http}" ];
+        }];
+      }
+    ];
+  };
+
+  # Enable grafana
+  services.grafana = {
+    enable = true;
+    settings.server = {
+      http_addr = "127.0.0.1";
+      http_port = 3000;
+      domain = "localhost";
+      serve_from_sub_path = true;
     };
   };
 
