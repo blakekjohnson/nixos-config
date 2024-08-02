@@ -15,7 +15,7 @@
       specialArgs = inputs;
       modules = [
         ./hosts/dev/configuration.nix
-	./blakej.nix
+	./users/blakej/user.nix
       ];
     };
 
@@ -24,7 +24,7 @@
       specialArgs = inputs;
       modules = [
         ./configuration.nix
-	./blakej.nix
+	./users/blakej/user.nix
       ];
     };
   };

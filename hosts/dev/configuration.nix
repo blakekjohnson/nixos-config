@@ -10,7 +10,7 @@
       home-manager.nixosModules.default
 
       # Include blakej user setup
-      ./blakej.nix
+      ../../users/blakej/user.nix
     ];
 
   # Set kernel to use latest

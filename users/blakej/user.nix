@@ -13,6 +13,7 @@
     extraGroups = [ "networkmanager" "wheel" "audio" ];
     packages = with pkgs; [
     ];
+    shell = pkgs.zsh;
   };
 
   home-manager.users = {
