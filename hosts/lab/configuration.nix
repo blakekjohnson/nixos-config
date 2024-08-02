@@ -32,16 +32,23 @@
       ports.http = 4000;
 
       upstreams.groups.default = [
-        "https://one.one.one.one/dns-query"
+        "tcp-tls:1.1.1.1:853"
       ];
 
       blocking = {
         blackLists = {
-          ads = [ "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" ];
+          ads = [
+            "https://adaway.org/hosts.txt"
+          ];
         };
         clientGroupsBlock = {
           default = [ "ads" ];
         };
+      };
+
+      clientLookup = {
+        upstream = "10.0.0.1";
+        singleNameOrder = [ 1 ];
       };
     };
   };
