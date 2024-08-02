@@ -10,6 +10,15 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
+    nixosConfigurations.dev = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = inputs;
+      modules = [
+        ./configurations/dev.nix
+	./blakej.nix
+      ];
+    };
+
     nixosConfigurations.middlec = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = inputs;
