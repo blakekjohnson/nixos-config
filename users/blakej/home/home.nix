@@ -22,6 +22,7 @@
     pkgs.killall
     pkgs.pavucontrol
     pkgs.scrot
+    pkgs.tree
   ];
 
   home.file = {
