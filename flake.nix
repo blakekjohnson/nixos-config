@@ -14,7 +14,7 @@
       system = "x86_64-linux";
       specialArgs = inputs;
       modules = [
-        ./hosts/dev.nix
+        ./hosts/dev/configuration.nix
 	./blakej.nix
       ];
     };
