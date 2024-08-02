@@ -18,5 +18,13 @@
 	./users/blakej/user.nix
       ];
     };
+    nixosConfigurations.lab = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = inputs;
+      modules = [
+        ./hosts/lab/configuration.nix
+	./users/blakej/user.nix
+      ];
+    };
   };
 }
