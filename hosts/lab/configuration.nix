@@ -24,8 +24,35 @@
   # Set hostname
   networking.hostName = "lab";
 
+  # Enable blocky
+  services.blocky = {
+    enable = true;
+    settings = {
+      ports.dns = 53;
+      ports.http = 4000;
+
+      upstreams.groups.default = [
+        "https://one.one.one.one/dns-query"
+      ];
+
+      blocking = {
+        blackLists = {
+          ads = [ "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" ];
+        };
+        clientGroupsBlock = {
+          default = [ "ads" ];
+        };
+      };
+    };
+  };
+
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 53 4000 ];
+    allowedUDPPorts = [ 53 4000 ];
+  };
 
   # Enable audio
   security.rtkit.enable = true;
