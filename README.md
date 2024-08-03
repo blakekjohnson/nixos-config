@@ -5,6 +5,9 @@ My current NixOS configuration.
 - [ ] Setup [lsp_zero](https://github.com/VonHeikemen/lsp-zero.nvim) for neovim
   - [x] Added pyright, haven't tested with a project yet
 - [x] Split configurations based on different hosts
+- [ ] Setup secrets using [agenix](https://github.com/ryantm/agenix)
+- [ ] Get [Vaultwarden](https://github.com/dani-garcia/vaultwarden) setup on lab
+- [ ] Start actually using branches in this repo
 
 ## Details
 ### Dev Machine Setup
