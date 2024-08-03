@@ -14,10 +14,23 @@
         "tcp-tls:1.1.1.1:853"
       ];
 
+      customDNS = {
+        customTTL = "1h";
+        mapping = {
+          "dev.lan" = "192.168.0.139";
+          "lab.lan" = "192.168.0.207";
+          "router.lan" = "192.168.0.1";
+        };
+      };
+
       blocking = {
-        blackLists = {
+        loading = {
+          strategy = "fast";
+        };
+        denylists = {
           general = [
             "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews/hosts"
+            "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/light.txt"
           ];
           abuse = [
             "https://blocklistproject.github.io/Lists/abuse.txt"
