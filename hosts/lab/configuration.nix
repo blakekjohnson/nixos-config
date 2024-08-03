@@ -50,8 +50,8 @@
     settings.server = {
       http_addr = "127.0.0.1";
       http_port = 3000;
-      domain = "bonkjohnson.com";
-      root_url = "https://bonkjohnson.com/grafana/";
+      domain = "grafana.bonkjohnson.com";
+      root_url = "https://grafana.bonkjohnson.com/";
       serve_from_sub_path = true;
     };
   };
