@@ -50,17 +50,21 @@
     settings.server = {
       http_addr = "127.0.0.1";
       http_port = 3000;
-      domain = "localhost";
+      domain = "bonkjohnson.com";
+      root_url = "https://bonkjohnson.com/grafana/";
       serve_from_sub_path = true;
     };
   };
+
+  # Enable SSH
+  services.openssh.enable = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 53 80 443 4000 ];
-    allowedUDPPorts = [ 53 80 443 4000 ];
+    allowedTCPPorts = [ 22 53 80 443 ];
+    allowedUDPPorts = [ 22 53 80 443 ];
   };
 
   # Enable audio
