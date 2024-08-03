@@ -14,6 +14,9 @@
 
       # Include blocky setup
       ./blocky.nix
+
+      # Include nginx setup
+      ./nginx.nix
     ];
 
   # Set kernel to use latest

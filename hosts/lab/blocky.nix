@@ -1,4 +1,4 @@
-{ config, pkgs, ... }
+{ config, pkgs, ... }:
 
 {
   # Enable blocky
@@ -60,6 +60,12 @@
       clientLookup = {
         upstream = "10.0.0.1";
         singleNameOrder = [ 1 ];
+      };
+
+      caching = {
+        minTime = "5m";
+        maxTime = "1h";
+        prefetching = true;
       };
     };
   };
