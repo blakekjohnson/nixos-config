@@ -21,8 +21,6 @@
     pkgs.firefox
     pkgs.killall
     pkgs.pavucontrol
-    pkgs.pyenv
-    (pkgs.python3.withPackages (ps: [ ps.flask ]))
     pkgs.scrot
     pkgs.tree
   ];

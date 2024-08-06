@@ -52,14 +52,11 @@
       lsp-zero-nvim
       nvim-lspconfig
     ];
-    extraPackages = [pkgs.vimPlugins.lsp-zero-nvim];
     extraLuaConfig = ''
       local lsp_zero = require('lsp-zero');
       lsp_zero.on_attach(function(client, bufnr)
         lsp_zero.default_keymaps({buffer = bbufnr})
       end)
-      
-      require('lspconfig').pyright.setup{}
     '';
     extraConfig = ''
       :set number
