@@ -3,7 +3,6 @@ My current NixOS configuration.
 
 ## To-do
 - [ ] Setup [lsp_zero](https://github.com/VonHeikemen/lsp-zero.nvim) for neovim
-- [ ] Setup secrets using [agenix](https://github.com/ryantm/agenix)
 - [ ] Get [Vaultwarden](https://github.com/dani-garcia/vaultwarden) setup on lab
 
 ## Details
