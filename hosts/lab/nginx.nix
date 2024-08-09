@@ -18,6 +18,10 @@
           '';
         };
       };
+      "nextcloud.bonkjohnson.com" = {
+        enableACME = true;
+        forceSSL = true;
+      };
     };
   };
 
@@ -25,5 +29,6 @@
   security.acme.acceptTerms = true;
   security.acme.certs = {
     "grafana.bonkjohnson.com".email = "blake.k.johnson.4@gmail.com";
+    "nextcloud.bonkjohnson.com".email = "blake.k.johnson.4@gmail.com";
   };
 }

@@ -1,10 +1,13 @@
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, agenix, home-manager, ... }:
 
 {
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
+      # Include agenix
+      agenix.nixosModules.default
 
       # Include home-manager
       home-manager.nixosModules.default
@@ -14,6 +17,9 @@
 
       # Include blocky setup
       ./blocky.nix
+
+      # Include nextcloud setup
+      ./nextcloud.nix
 
       # Include nginx setup
       ./nginx.nix
@@ -177,6 +183,8 @@
     alacritty
 
     pavucontrol
+
+    agenix.packages."${system}".default
   ];
 
   fonts.packages = with pkgs; [
