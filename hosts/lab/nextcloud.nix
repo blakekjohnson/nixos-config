@@ -12,9 +12,13 @@
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud29;
-    hostName = "nextcloud.bonkjohnson.com";
-    config.adminpassFile = config.age.secrets.nextcloud.path;
-    https = true;
+
     configureRedis = true;
+    maxUploadSize = "2G";
+
+    https = true;
+    hostName = "nextcloud.bonkjohnson.com";
+
+    config.adminpassFile = config.age.secrets.nextcloud.path;
   };
 }

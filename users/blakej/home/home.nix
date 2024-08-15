@@ -20,6 +20,7 @@
     pkgs.audacity
     pkgs.firefox
     pkgs.killall
+    pkgs.nextcloud-client
     pkgs.pavucontrol
     pkgs.scrot
     pkgs.tree
