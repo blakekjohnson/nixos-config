@@ -8,10 +8,9 @@
       ports.dns = 53;
       ports.http = 4000;
 
-      prometheus.enable = true;
-
       upstreams.groups.default = [
         "tcp-tls:1.1.1.1:853"
+        "https:1.1.1.1"
       ];
 
       customDNS = {
@@ -20,6 +19,7 @@
           "dev.lan" = "192.168.0.139";
           "lab.lan" = "192.168.0.207";
           "router.lan" = "192.168.0.1";
+          "nextcloud.bonkjohnson.com" = "192.168.0.207";
         };
       };
 
