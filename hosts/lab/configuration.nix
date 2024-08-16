@@ -35,32 +35,6 @@
 
   # Set hostname
   networking.hostName = "lab";
-  
-  # Enable prometheus
-  services.prometheus = {
-    enable = true;
-    globalConfig.scrape_interval = "10s";
-    scrapeConfigs = [
-      {
-        job_name = "blocky";
-        static_configs = [{
-          targets = [ "localhost:${toString config.services.blocky.settings.ports.http}" ];
-        }];
-      }
-    ];
-  };
-
-  # Enable grafana
-  services.grafana = {
-    enable = true;
-    settings.server = {
-      http_addr = "127.0.0.1";
-      http_port = 3000;
-      domain = "grafana.bonkjohnson.com";
-      root_url = "https://grafana.bonkjohnson.com/";
-      serve_from_sub_path = true;
-    };
-  };
 
   # Enable SSH
   services.openssh.enable = true;
