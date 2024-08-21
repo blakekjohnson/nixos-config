@@ -11,7 +11,7 @@
         config = ''
           require('lualine').setup(
             {
-              options = { theme = 'dracula-nvim' },
+              options = { theme = 'everforest' },
               sections = {
                 lualine_a = { 'mode' },
                 lualine_c = { 'filename' },
@@ -24,21 +24,27 @@
         '';
       }
       {
-        plugin = dracula-nvim;
+        plugin = kanagawa-nvim;
         type = "lua";
         config = ''
-          require('dracula').setup{}
-          vim.cmd[[colorscheme dracula]]
+          require('kanagawa').setup{}
+          vim.cmd[[colorscheme kanagawa]]
         '';
       }
-      lsp-zero-nvim
-      nvim-lspconfig
+      (nvim-treesitter.withPlugins (p: [
+        p.markdown
+        p.nix
+      ]))
     ];
     extraLuaConfig = ''
-      local lsp_zero = require('lsp-zero');
-      lsp_zero.on_attach(function(client, bufnr)
-        lsp_zero.default_keymaps({buffer = bbufnr})
-      end)
+      require'nvim-treesitter.configs'.setup {
+        highlight = {
+          enable = true,
+        },
+        indent = {
+          enable = true,
+        },
+      }
     '';
     extraConfig = ''
       :set number
