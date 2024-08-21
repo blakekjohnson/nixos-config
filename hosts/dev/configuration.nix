@@ -130,19 +130,12 @@
     neovim
     fastfetch
 
-    fira-code
-    fira-code-symbols
-
     git
 
     zsh
     alacritty
 
     pavucontrol
-  ];
-
-  fonts.packages = with pkgs; [
-    fira-code fira-mono
   ];
 
   programs.slock.enable = true;

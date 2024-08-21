@@ -21,6 +21,9 @@
     pkgs.firefox
     pkgs.killall
     pkgs.nextcloud-client
+    pkgs.noto-fonts
+    pkgs.noto-fonts-cjk
+    pkgs.noto-fonts-emoji
     pkgs.pavucontrol
     pkgs.scrot
     pkgs.tree

@@ -7,16 +7,16 @@
         y = 10;
       };
       font.normal = {
-        family = "Fira Code";
+        family = "Noto Sans Mono";
       };
       font.bold = {
-        family = "Fira Code";
+        family = "Noto Sans Mono";
       };
       font.italic = {
-        family = "Fira Code";
+        family = "Noto Sans Mono";
       };
       font.bold_italic = {
-        family = "Fira Code";
+        family = "Noto Sans Mono";
       };
     };
   };

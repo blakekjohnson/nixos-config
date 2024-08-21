@@ -1,9 +1,6 @@
 # nixos-config
 My current NixOS configuration.
 
-## To-do
-- [ ] Setup [lsp_zero](https://github.com/VonHeikemen/lsp-zero.nvim) for neovim
-
 ## Details
 ### Dev Machine Setup
 * Dual boot NixOS w/ Windows 10

@@ -148,9 +148,6 @@
     neovim
     fastfetch
 
-    fira-code
-    fira-code-symbols
-
     git
 
     zsh
@@ -159,10 +156,6 @@
     pavucontrol
 
     agenix.packages."${system}".default
-  ];
-
-  fonts.packages = with pkgs; [
-    fira-code fira-mono
   ];
 
   programs.slock.enable = true;
