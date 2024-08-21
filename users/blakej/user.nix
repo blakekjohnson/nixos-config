@@ -19,7 +19,7 @@
   home-manager.users = {
     "blakej" = {
       imports = [
-        ./home/home.nix
+        ./home.nix
       ];
     };
   };
