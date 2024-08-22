@@ -1,22 +1,20 @@
-{ config, pkgs, ...}: {
+{ config, pkgs, ...}:
+let
+  fontFamily = "Hack";
+in {
   programs.alacritty = {
     enable = true;
     settings = {
+      font = {
+        normal.family = fontFamily;
+        bold.family = fontFamily;
+        italic.family = fontFamily;
+        bold_italic.family = fontFamily;
+      };
+
       window.padding = {
         x = 10;
         y = 10;
-      };
-      font.normal = {
-        family = "Noto Sans Mono";
-      };
-      font.bold = {
-        family = "Noto Sans Mono";
-      };
-      font.italic = {
-        family = "Noto Sans Mono";
-      };
-      font.bold_italic = {
-        family = "Noto Sans Mono";
       };
     };
   };

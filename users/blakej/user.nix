@@ -12,9 +12,14 @@
     description = "Blake Johnson";
     extraGroups = [ "networkmanager" "wheel" "audio" ];
     packages = with pkgs; [
+      hack-font
     ];
     shell = pkgs.zsh;
   };
+
+  fonts.packages = with pkgs; [
+    hack-font
+  ];
 
   home-manager.users = {
     "blakej" = {
