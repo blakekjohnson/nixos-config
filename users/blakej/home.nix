@@ -17,10 +17,9 @@
   home.stateVersion = "24.05";
 
   home.packages = [
-    pkgs.audacity
+    pkgs.bat
     pkgs.firefox
     pkgs.killall
-    pkgs.nextcloud-client
     pkgs.pavucontrol
     pkgs.scrot
     pkgs.tree
@@ -49,6 +48,9 @@
     enable = true;
     userName = "Blake Johnson";
     userEmail = "blake.k.johnson.4@gmail.com";
+    extraConfig = {
+      core.editor = "nvim"; 
+    };
   };
 
   # Let Home Manager install and manage itself.
