@@ -37,6 +37,7 @@
         '';
       }
       (nvim-treesitter.withPlugins (p: [
+        p.bash
         p.markdown
         p.markdown-inline
         p.nix
