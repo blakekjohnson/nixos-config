@@ -1,6 +1,7 @@
 { config, pkgs, ...}: {
   home.packages = with pkgs; [
     pkgs.marksman
+    pkgs.ripgrep
   ];
 
   programs.neovim = {
@@ -86,6 +87,8 @@
           }
         '';
       }
+      plenary-nvim
+      telescope-nvim
     ];
     extraLuaConfig = ''
       require'nvim-treesitter.configs'.setup {
@@ -106,6 +109,12 @@
       :set tabstop=8 softtabstop=0
       :set mouse=
       nnoremap <C-L><C-L> :set invrelativenumber<CR>
+
+      nnoremap <leader>ff <cmd>Telescope find_files<CR>
+      nnoremap <leader>fb <cmd>Telescope buffers<CR>
+      nnoremap <leader>fg <cmd>Telescope live_grep<CR>
+      nnoremap <leader>fh <cmd>Telescope help_tags<CR>
+      nnoremap <leader>ft <cmd>Telescope treesitter<CR>
     '';
   };
 }
