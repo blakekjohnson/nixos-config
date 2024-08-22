@@ -42,6 +42,7 @@
         pkgs.bat
         pkgs.firefox
         pkgs.killall
+        pkgs.nextcloud-client
         pkgs.pavucontrol
         pkgs.scrot
         pkgs.tree
