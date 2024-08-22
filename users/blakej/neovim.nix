@@ -104,6 +104,7 @@
       :set shiftwidth=2 smarttab
       :set expandtab
       :set tabstop=8 softtabstop=0
+      :set mouse=
       nnoremap <C-L><C-L> :set invrelativenumber<CR>
     '';
   };
