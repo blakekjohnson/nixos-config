@@ -1,4 +1,8 @@
 { config, pkgs, ...}: {
+  home.packages = with pkgs; [
+    pkgs.marksman
+  ];
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -33,8 +37,16 @@
       }
       (nvim-treesitter.withPlugins (p: [
         p.markdown
+        p.markdown-inline
         p.nix
       ]))
+      {
+        plugin = nvim-lspconfig;
+        type = "lua";
+        config = ''
+          require'lspconfig'.marksman.setup{}
+        '';
+      }
     ];
     extraLuaConfig = ''
       require'nvim-treesitter.configs'.setup {
@@ -45,6 +57,8 @@
           enable = true,
         },
       }
+
+      vim.opt.conceallevel = 2
     '';
     extraConfig = ''
       :set number
