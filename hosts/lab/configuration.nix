@@ -1,4 +1,4 @@
-{ config, pkgs, agenix, home-manager, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
@@ -6,14 +6,8 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      # Include agenix
-      agenix.nixosModules.default
-
-      # Include home-manager
-      home-manager.nixosModules.default
-
-      # Include blakej user setup
-      ../../users/blakej/user.nix
+      # Include common configuration
+      ../common.nix
 
       # Include blocky setup
       ./blocky.nix
@@ -25,8 +19,7 @@
       ./nginx.nix
     ];
 
-  # Set kernel to use latest
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # Set intel pstate to active
   boot.kernelParams = [ "intel_pstate=active" ];
 
   # Bootloader.
@@ -39,127 +32,12 @@
   # Enable SSH
   services.openssh.enable = true;
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+  # Enable firewall ports for SSH, DNS, HTTP, and HTTPS
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 22 53 80 443 ];
     allowedUDPPorts = [ 22 53 80 443 ];
   };
-
-  # Enable audio
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    extraConfig.pipewire = {
-      "92-low-latency" = {
-        context.properties = {
-          default.clock = {
-            rate = 48000;
-            quantum = 32;
-            min-quantum = 32;
-            max-quantum = 32;
-          };
-        };
-      };
-    };
-    extraConfig.pipewire-pulse = {
-      context.modules = [
-        {
-          name = "libpipewire-module-protocol-pulse";
-          args = {
-            pulse = {
-              min.req = "32/48000";
-              default.req = "32/48000";
-              max.req = "32/48000";
-              min.quantum = "32/48000";
-              max.quantum = "32/48000";
-            };
-          };
-        }
-      ];
-      stream.properties = {
-        node.latency = "32/48000";
-        resample.quality = 1;
-      };
-    };
-  };
-
-  # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Set your time zone.
-  time.timeZone = "America/Indiana/Indianapolis";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  # Configure X11
-  services.xserver = {
-    enable = true;
-
-    # Configure keymap
-    xkb.layout = "us";
-    xkb.variant = "";
-
-    # Enable xmonad
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-      extraPackages = hpkgs: [
-        hpkgs.xmobar
-      ];
-    };
-
-    displayManager.lightdm = {
-      greeters.mini = {
-        enable = true;
-        user = "blakej";
-        extraConfig = ''
-          [greeter-theme]
-          background-image = "/usr/share/wallpaper.jpg"
-        '';
-      };
-    };
-  };
-  services.displayManager = {
-    defaultSession = "none+xmonad";
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-    vim
-    neovim
-    fastfetch
-
-    git
-
-    zsh
-    alacritty
-
-    pavucontrol
-
-    agenix.packages."${system}".default
-  ];
-
-  programs.slock.enable = true;
-  programs.zsh.enable = true;
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }
