@@ -20,5 +20,7 @@
     hostName = "nextcloud.bonkjohnson.com";
 
     config.adminpassFile = config.age.secrets.nextcloud.path;
+
+    settings.log_type = "file";
   };
 }
