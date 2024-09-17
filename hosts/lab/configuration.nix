@@ -12,6 +12,9 @@
       # Include blocky setup
       ./blocky.nix
 
+      # Include fail2ban setup
+      ./fail2ban.nix
+
       # Include nextcloud setup
       ./nextcloud.nix
 
