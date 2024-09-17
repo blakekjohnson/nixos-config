@@ -31,18 +31,6 @@
         bantime = 86400;
         maxretry = 3;
       };
-
-      # Example scanning jail
-      apache-nohome-iptables.settings = {
-        enabled = true;
-        filter = "apache-nohome";
-        backend = "auto";
-        action = ''iptables-multiport[name=HTTP, port="http,https"]'';
-        logpath = "/var/log/httpd/error_log*";
-        findtime = 600;
-        bantime = 600;
-        maxretry = 5;
-      };
     };
   };
 
