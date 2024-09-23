@@ -6,11 +6,16 @@
     enable = true;
     statusPage = true;
 
+    appendHttpConfig = ''
+      limit_req_zone $binary_remote_addr zone=ratelimit:10m rate=10r/s;
+    '';
+
     virtualHosts = {
       "blakekjohnson.dev" = {
         enableACME = true;
         forceSSL = true;
         root = "/var/www/blog";
+        extraConfig = ''limit_req zone=ratelimit burst=20 nodelay;'';
       };
       "grafana.bonkjohnson.com" = {
         enableACME = true;
@@ -20,10 +25,12 @@
           proxyWebsockets = true;
           recommendedProxySettings = true;
         };
+        extraConfig = ''limit_req zone=ratelimit burst=20 nodelay;'';
       };
       "nextcloud.bonkjohnson.com" = {
         enableACME = true;
         forceSSL = true;
+        extraConfig = ''limit_req zone=ratelimit burst=20 nodelay;'';
       };
     };
   };
