@@ -21,6 +21,7 @@
           "router.lan" = "192.168.0.1";
           "att.lan" = "192.168.1.254";
           "nextcloud.bonkjohnson.com" = "192.168.0.207";
+          "blakekjohnson.dev" = "192.168.0.207";
         };
       };
 

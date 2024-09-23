@@ -9,6 +9,11 @@
         enableACME = true;
         forceSSL = true;
       };
+      "blakekjohnson.dev" = {
+        enableACME = true;
+        forceSSL = true;
+        root = "/var/www/blog";
+      };
     };
   };
 
@@ -16,5 +21,6 @@
   security.acme.acceptTerms = true;
   security.acme.certs = {
     "nextcloud.bonkjohnson.com".email = "blake.k.johnson.4@gmail.com";
+    "blakekjohnson.dev".email = "blake.k.johnson.4@gmail.com";
   };
 }
