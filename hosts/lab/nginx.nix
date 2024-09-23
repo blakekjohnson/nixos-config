@@ -5,14 +5,23 @@
   services.nginx = {
     enable = true;
     virtualHosts = {
-      "nextcloud.bonkjohnson.com" = {
-        enableACME = true;
-        forceSSL = true;
-      };
       "blakekjohnson.dev" = {
         enableACME = true;
         forceSSL = true;
         root = "/var/www/blog";
+      };
+      "grafana.bonkjohnson.com" = {
+        enableACME = true;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:3000";
+          proxyWebsockets = true;
+          recommendedProxySettings = true;
+        };
+      };
+      "nextcloud.bonkjohnson.com" = {
+        enableACME = true;
+        forceSSL = true;
       };
     };
   };
@@ -20,7 +29,8 @@
   # Enable ACME
   security.acme.acceptTerms = true;
   security.acme.certs = {
-    "nextcloud.bonkjohnson.com".email = "blake.k.johnson.4@gmail.com";
     "blakekjohnson.dev".email = "blake.k.johnson.4@gmail.com";
+    "grafana.bonkjohnson.com".email = "blake.k.johnson.4@gmail.com";
+    "nextcloud.bonkjohnson.com".email = "blake.k.johnson.4@gmail.com";
   };
 }

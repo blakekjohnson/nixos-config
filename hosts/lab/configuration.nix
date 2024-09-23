@@ -15,6 +15,9 @@
       # Include fail2ban setup
       ./fail2ban.nix
 
+      # Include grafana setup
+      ./grafana.nix
+
       # Include nextcloud setup
       ./nextcloud.nix
 
