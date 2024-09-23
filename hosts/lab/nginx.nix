@@ -4,6 +4,8 @@
   # Enable nginx
   services.nginx = {
     enable = true;
+    statusPage = true;
+
     virtualHosts = {
       "blakekjohnson.dev" = {
         enableACME = true;
