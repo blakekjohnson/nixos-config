@@ -23,6 +23,9 @@
 
       # Include nginx setup
       ./nginx.nix
+
+      # Include prometheus setup
+      ./prometheus.nix
     ];
 
   # Set intel pstate to active
