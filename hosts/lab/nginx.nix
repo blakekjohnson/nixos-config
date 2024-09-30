@@ -30,7 +30,6 @@
       "nextcloud.bonkjohnson.com" = {
         enableACME = true;
         forceSSL = true;
-        extraConfig = ''limit_req zone=ratelimit burst=20 nodelay;'';
       };
     };
   };
