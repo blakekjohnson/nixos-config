@@ -11,7 +11,7 @@
 
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud29;
+    package = pkgs.nextcloud30;
 
     configureRedis = true;
     maxUploadSize = "2G";
