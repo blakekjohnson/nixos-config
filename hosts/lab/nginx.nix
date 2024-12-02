@@ -6,16 +6,16 @@
     enable = true;
     statusPage = true;
 
-    appendHttpConfig = ''
-      limit_req_zone $binary_remote_addr zone=ratelimit:10m rate=10r/s;
-    '';
-
     virtualHosts = {
       "blakekjohnson.dev" = {
         enableACME = true;
         forceSSL = true;
         root = "/var/www/blog";
-        extraConfig = ''limit_req zone=ratelimit burst=20 nodelay;'';
+      };
+      "ge-homecare.blakekjohnson.dev" = {
+        enableACME = true;
+        forceSSL = true;
+        root = "/var/www/ge-homecare";
       };
       "grafana.bonkjohnson.com" = {
         enableACME = true;
@@ -25,7 +25,6 @@
           proxyWebsockets = true;
           recommendedProxySettings = true;
         };
-        extraConfig = ''limit_req zone=ratelimit burst=20 nodelay;'';
       };
       "nextcloud.bonkjohnson.com" = {
         enableACME = true;
@@ -40,5 +39,6 @@
     "blakekjohnson.dev".email = "blake.k.johnson.4@gmail.com";
     "grafana.bonkjohnson.com".email = "blake.k.johnson.4@gmail.com";
     "nextcloud.bonkjohnson.com".email = "blake.k.johnson.4@gmail.com";
+    "ge-homecare.blakekjohnson.dev".email = "blake.k.johnson.4@gmail.com";
   };
 }
