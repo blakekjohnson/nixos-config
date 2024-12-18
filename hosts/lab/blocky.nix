@@ -20,7 +20,6 @@
           "lab.lan" = "192.168.0.207";
           "router.lan" = "192.168.0.1";
           "att.lan" = "192.168.1.254";
-          "blakekjohnson.dev" = "192.168.0.207";
           "grafana.bonkjohnson.com" = "192.168.0.207";
           "nextcloud.bonkjohnson.com" = "192.168.0.207";
         };
